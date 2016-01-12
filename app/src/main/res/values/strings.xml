@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Audacia</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">REproductor2</string>
     <string name="action_settings">Settings</string>
 </resources>

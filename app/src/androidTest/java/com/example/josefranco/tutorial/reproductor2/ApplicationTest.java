@@ -1,4 +1,4 @@
-package com.micros.iteso.audacia;
+package com.example.josefranco.tutorial.reproductor2;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
