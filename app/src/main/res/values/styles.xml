@@ -1,8 +1,26 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/fontColor</item>
+
     </style>
+
+    <style name="navigationTheme">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColorPrimary">@color/fontColor</item>
+        <item name="android:textColorSecondary">@color/fontColor</item>
+        <item name="android:listDivider">@color/colorPrimaryNavigation</item>
+
+    </style>
+
+    <style name="sections">
+        <item name="android:color">#FFFFFF</item>
+        <item name="android:listDivider">@color/blackColor</item>
+        <item name="android:textStyle">bold</item>s
+    </style>
+
 
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CC3300</color>
+    <color name="colorPrimaryNavigation">#CC3300</color>
+    <color name="fontColor">#FFFFFF</color>
+    <color name="fontSecondaryColor">#181818</color>
+    <color name="grayStandardColor">#111111</color>
+    <color name="whiteColor">#FFFFFF</color>
+    <color name="blackColor">#000000</color>
+</resources>

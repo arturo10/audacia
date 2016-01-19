@@ -2,5 +2,15 @@
     <string name="app_name">Audacia</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="start">Inicio</string>
+    <string name="myBooks">Mis Libros</string>
+    <string name="play">Pista Actual</string>
+    <string name="openDrawer">Abierto</string>
+    <string name="closeDrawer">Cerrado</string>
+    <string name="store">Tienda</string>
+    <string name="favorites">Favoritos</string>
+    <string name="bookmarks">Marcadores</string>
+    <string name="librarySection">Biblioteca</string>
+    <string name="playingSection">Reproduciendo</string>
 </resources>
