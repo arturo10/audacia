@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements OnCompletionListe
     private TextView songCurrentDurationLabel;
     private TextView songTotalDurationLabel;
     private ImageButton playListButon;
-    private String urlCurrent = "http://educacionweb.mx/Audacia/Viaje/Viaje%20al%20centro%20de%20la%20tierra_capitulo%204.mp3";
-
+    private String urlCurrent = "http://educacionweb.mx/Audacia/Viaje/Viaje%20al%20centro%20de%20la%20tierra_capitulo%201.mp3";
+    private Fragment currentFragment;
 
     // Handler to update UI timer, progress bar etc,.
     private Handler mHandler = new Handler() {
@@ -116,36 +116,37 @@ public class MainActivity extends AppCompatActivity implements OnCompletionListe
         songProgressBar.setOnSeekBarChangeListener(this); // Important
         mediaPlayer.setOnCompletionListener(this); // Important
 
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if(extras!=null){
             urlCurrent = extras.getString("URL");
-        }
-        Intent intent2 = getIntent();
-        Bundle extras2 = intent2.getExtras();
-        if(extras2!=null){
-            Reproduce = extras2.getBoolean("Reproduce");
-        }
+        }*/
 
-        if(Reproduce==true){
-            if (!playPause) {
-                btn.setBackgroundResource(R.drawable.pause_button);
-                if (intialStage)
-                    new Player().execute(urlCurrent);
-                else {
-                    if (!mediaPlayer.isPlaying())
-                        mediaPlayer.start();
-                }
-                playPause = true;
-            } else {
-                btn.setBackgroundResource(R.drawable.play_button);
 
-                if (mediaPlayer.isPlaying())
-                    mediaPlayer.pause();
-                playPause = false;
+        Bundle bundle = getIntent().getBundleExtra("bundle");
+        if(bundle!=null)
+            this.currentFragment = bundle.getParcelable("frag");
+
+
+
+        if (!playPause) {
+            btn.setBackgroundResource(R.drawable.pause_button);
+            if (intialStage)
+                new Player().execute(this.currentFragment!=null? this.currentFragment.getUrlAudio():urlCurrent);
+            else {
+                if (!mediaPlayer.isPlaying())
+                    mediaPlayer.start();
             }
-            Reproduce=false;
+            playPause = true;
+        } else {
+            btn.setBackgroundResource(R.drawable.play_button);
+
+            if (mediaPlayer.isPlaying())
+                mediaPlayer.pause();
+            playPause = false;
         }
+
+
     }
 
     @Override
@@ -170,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements OnCompletionListe
             if (!playPause) {
                 btn.setBackgroundResource(R.drawable.pause_button);
                 if (intialStage)
-                    new Player().execute(urlCurrent);
+                    new Player().execute(currentFragment!=null? currentFragment.getUrlAudio():urlCurrent);
                 else {
                     if (!mediaPlayer.isPlaying())
                         mediaPlayer.start();

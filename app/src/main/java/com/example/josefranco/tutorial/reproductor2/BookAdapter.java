@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,9 +43,11 @@ public class BookAdapter extends ArrayAdapter{
     private static final String TAG = "PostAdapter";
     List<Fragment> fragments;
 
+    private Context context;
+
     public BookAdapter(Context context) {
         super(context,0);
-
+        this.context=context;
         // Crear nueva cola de peticiones
         requestQueue= Volley.newRequestQueue(context);
 
@@ -76,10 +79,10 @@ public class BookAdapter extends ArrayAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItemView;
+        final View listItemView;
         //View tempView=null;
 
         //Comprobando si el View no existe
@@ -87,6 +90,18 @@ public class BookAdapter extends ArrayAdapter{
         //tempView = null == convertView ? layoutInflater.inflate(R.layout.url, parent, false) : convertView;
 
         // Obtener el item actual
+        listItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Bundle b = new Bundle();
+                b.putParcelable("frag", fragments.get(position));
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.putExtra("bundle", b);
+                context.startActivity(intent);
+
+            }
+        });
+
         Fragment item = fragments.get(position);
 
         // Obtener Views

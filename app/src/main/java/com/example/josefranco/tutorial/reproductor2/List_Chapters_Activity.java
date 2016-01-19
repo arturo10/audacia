@@ -24,14 +24,14 @@ public class List_Chapters_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_list__chapters_);
 
         listview=(ListView) findViewById(R.id.listView);
-        View header = (View) getLayoutInflater().inflate(R.layout.encabezado_listview,null);
-        listview.addHeaderView(header);
+        //View header = (View) getLayoutInflater().inflate(R.layout.encabezado_listview,null);
+        //listview.addHeaderView(header);
         arrayAdapter=new BookAdapter(this);
         listview.setAdapter(arrayAdapter);
 
 
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Capitulo " + position, Toast.LENGTH_SHORT).show();
@@ -53,7 +53,7 @@ public class List_Chapters_Activity extends AppCompatActivity {
 
                 finish();
             }
-        });
+        });*/
 
     }
 
